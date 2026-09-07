@@ -1,0 +1,23 @@
+title: Royce Luo
+author: Royce Luo
+description: >-
+  Personal website — about me, scholarly work, blog, and contact info.
+baseurl: "/personal_website" # the subpath of your site, e.g. /repo-name
+url: "https://royceluo.github.io" # the base hostname & protocol, e.g. https://username.github.io
+
+markdown: kramdown
+kramdown:
+  auto_ids: true # gives every heading a stable #id so the sidebar TOC can link to it
+
+permalink: /blog/:year/:month/:day/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor

@@ -1,0 +1,248 @@
+:root {
+  --color-bg: #ffffff;
+  --color-text: #1f2328;
+  --color-muted: #6b7280;
+  --color-border: #e5e7eb;
+  --color-accent: #2563eb;
+  --color-accent-soft: #eef2ff;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --content-max-width: 720px;
+  --sidebar-width: 220px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0f1115;
+    --color-text: #e5e7eb;
+    --color-muted: #9aa4b2;
+    --color-border: #262a33;
+    --color-accent: #60a5fa;
+    --color-accent-soft: #16202f;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+a { color: var(--color-accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Header */
+
+.site-header {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.site-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+.site-title:hover { text-decoration: none; }
+
+.main-nav {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.main-nav a {
+  color: var(--color-muted);
+  font-weight: 500;
+}
+
+.main-nav a.active,
+.main-nav a:hover {
+  color: var(--color-accent);
+}
+
+/* Page layout: sidebar TOC + content */
+
+.site-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.page-wrapper {
+  display: flex;
+  gap: 2.5rem;
+  padding: 2.5rem 0 4rem;
+  align-items: flex-start;
+}
+
+.toc-sidebar {
+  width: var(--sidebar-width);
+  flex-shrink: 0;
+  position: sticky;
+  top: 1.5rem;
+}
+
+.toc-sidebar.is-empty { display: none; }
+
+.toc-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-muted);
+  margin: 0 0 0.75rem;
+}
+
+#toc {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  border-left: 2px solid var(--color-border);
+}
+
+.toc-link {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  padding: 0.15rem 0 0.15rem 0.9rem;
+  border-left: 2px solid transparent;
+  margin-left: -2px;
+}
+
+.toc-link.toc-h3 {
+  padding-left: 1.8rem;
+  font-size: 0.85rem;
+}
+
+.toc-link:hover {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.toc-link.active {
+  color: var(--color-accent);
+  border-left-color: var(--color-accent);
+  font-weight: 600;
+}
+
+.page-content {
+  max-width: var(--content-max-width);
+  min-width: 0;
+}
+
+.page-content h1 {
+  margin-top: 0;
+  font-size: 2rem;
+}
+
+.page-content h2 {
+  font-size: 1.4rem;
+  margin-top: 2.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.page-content h2:first-of-type {
+  margin-top: 1.5rem;
+  border-top: none;
+  padding-top: 0;
+}
+
+.page-content h3 {
+  font-size: 1.1rem;
+  margin-top: 1.75rem;
+}
+
+.page-content ul,
+.page-content ol {
+  padding-left: 1.25rem;
+}
+
+.page-content code {
+  background: var(--color-accent-soft);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.post-meta {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  margin-top: -1rem;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.post-list .post-date {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  display: inline-block;
+  min-width: 7rem;
+}
+
+/* Footer */
+
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+.site-footer p {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+/* Responsive: stack sidebar above content on narrow screens */
+
+@media (max-width: 800px) {
+  .page-wrapper {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .toc-sidebar {
+    width: 100%;
+    position: static;
+  }
+
+  #toc {
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-left: none;
+    gap: 0.5rem 1rem;
+  }
+
+  .toc-link {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .toc-link.toc-h3 {
+    padding-left: 0;
+  }
+
+  .toc-link.active {
+    border-left: none;
+    text-decoration: underline;
+  }
+}
