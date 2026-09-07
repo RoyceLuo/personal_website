@@ -4,11 +4,9 @@ A personal site built with Jekyll (natively supported by GitHub Pages — no bui
 
 ## Publish it
 
-1. Push this repo to GitHub (already at `RoyceLuo/personal_website`).
+1. Push this repo to GitHub (`RoyceLuo/RoyceLuo.github.io`).
 2. In the repo's **Settings → Pages**, set Source to "Deploy from a branch," branch `main`, folder `/ (root)`.
-3. The site will build at `https://royceluo.github.io/personal_website/`.
-
-If you'd rather have it live at the root `https://royceluo.github.io/` (no `/personal_website/` path), rename this repo to `RoyceLuo.github.io` and set `baseurl: ""` in [`_config.yml`](_config.yml).
+3. The site builds at `https://royceluo.github.io/`.
 
 ## Adding content
 
@@ -51,4 +49,4 @@ bundle install
 bundle exec jekyll serve
 ```
 
-Then open `http://localhost:4000/personal_website/`.
+Then open `http://localhost:4000/`.

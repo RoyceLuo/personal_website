@@ -2,7 +2,7 @@ title: Royce Luo
 author: Royce Luo
 description: >-
   Personal website — about me, scholarly work, blog, and contact info.
-baseurl: "/personal_website" # the subpath of your site, e.g. /repo-name
+baseurl: "" # served at the domain root now that the repo is royceluo.github.io
 url: "https://royceluo.github.io" # the base hostname & protocol, e.g. https://username.github.io
 
 markdown: kramdown
